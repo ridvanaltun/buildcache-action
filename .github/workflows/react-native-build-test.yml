@@ -17,11 +17,11 @@ jobs:
       BUILDCACHE_MAX_CACHE_SIZE: 234567890 # will override default of 500000000
       BUILDCACHE_MAX_LOCAL_ENTRY_SIZE: 34567890 # Not used by buildache-action, but will pass through...
     steps:
-      - uses: styfle/cancel-workflow-action@0.11.0
+      - uses: styfle/cancel-workflow-action@0.12.1
         with:
           all_but_latest: true
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 50
 
@@ -31,7 +31,7 @@ jobs:
           cache_key: react-native-compile # demonstrate putting custom key component in cache key
           upload_buildcache_log: true # demonstrate buildcache upload
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
 
@@ -55,7 +55,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Yarn Cache
         id: yarn-cache
         with:
@@ -71,7 +71,7 @@ jobs:
           max_attempts: 3
           command: npx react-native init demo --skip-install
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Cache Pods
         id: pods-cache
         with:

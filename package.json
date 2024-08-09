@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikehardy/buildcache-action.git"
+    "url": "git@github.com:cscouto/buildcache-action.git"
   },
   "keywords": [
     "actions",
@@ -33,7 +33,16 @@
     "cache",
     "buildcache"
   ],
-  "author": "Mike Hardy <github@mikehardy.net>",
+  "contributors" : [
+  {
+    "name" : "Mike Hardy",
+    "email" : "github@mikehardy.net"
+  },  
+  {
+    "name" : "Tiago Do Couto",
+    "email" : "cs.couto@outlook.com"
+  }
+ ],
   "license": "MIT",
   "dependencies": {
     "@actions/artifact": "^1.1.1",
@@ -67,6 +76,6 @@
     "typescript": "^4.4.3"
   },
   "engines": {
-    "node": ">=14.17.0"
+    "node": ">=18.15.0"
   }
 }
