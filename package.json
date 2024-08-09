@@ -55,7 +55,7 @@
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.0",
     "@types/jest": "^27.0.2",
-    "@types/node": "20",
+    "@types/node": "18",
     "@types/rimraf": "^3.0.2",
     "@typescript-eslint/parser": "^4.32.0",
     "@vercel/ncc": "^0.31.1",
@@ -64,16 +64,16 @@
     "eslint-plugin-github": "^4.3.0",
     "eslint-plugin-jest": "^24.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^27.2.4",
+    "jest": "^29.7.0",
     "jest-circus": "^27.2.4",
     "js-yaml": "^4.1.0",
     "np": "^7.5.0",
     "prettier": "2.4.1",
     "rimraf": "^3.0.2",
     "semantic-release": "^18.0.0",
-    "ts-jest": "^27.0.5",
+    "ts-jest": "^29.2.4",
     "tsc-watch": "^4.5.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.0-dev.20240809"
   },
   "engines": {
     "node": ">=18.15.0"
