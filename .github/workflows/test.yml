@@ -1,5 +1,5 @@
 name: 'build-test'
-on: # rebuild any PRs and main branch changes
+on:
   pull_request:
   push:
     branches:
@@ -7,17 +7,20 @@ on: # rebuild any PRs and main branch changes
       - 'releases/*'
 
 jobs:
-  build: # make sure build/ci work properly
+  build:
     env:
       GITHUB_TOKEN: '${{ github.token }}'
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           yarn
       - run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           yarn all
-  build-ubuntu-20-04: # make sure build/ci work properly
+
+  build-ubuntu-20-04:
     env:
       GITHUB_TOKEN: '${{ github.token }}'
       ACTION_BUILDCACHE_TAG: "v0.27.6"
@@ -25,10 +28,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           yarn
       - run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           yarn all
-  test: # make sure the action works on a clean machine without building
+
+  test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -38,8 +44,8 @@ jobs:
       - uses: ./
         with:
           cache_key: build-test-${{ matrix.os }}
-  test-ubuntu-20-04: # make sure the action works on a clean machine without building
-    # https://github.com/mbitsnbites/buildcache/issues/291
+
+  test-ubuntu-20-04:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -50,4 +56,3 @@ jobs:
         with:
           cache_key: build-test-${{ matrix.os }}
           buildcache_tag: v0.27.6
-
