@@ -5,7 +5,7 @@
   "description": "GitHub Action that installs and configures buildcache to accelerate compilation",
   "main": "dist/restore/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider tsc",
     "build-watch": "tsc-watch --onSuccess \"yarn package\"",
     "clean": "yarn rimraf __tests__/runner ./dist ./lib ./demo",
     "format": "prettier --write **/*.ts",
@@ -17,7 +17,7 @@
     "package": "yarn package-restore && yarn package-save",
     "test": "jest",
     "test-watch": "jest --watch",
-    "all": "yarn build && yarn format-check && yarn lint && yarn package && yarn test",
+    "all": "NODE_OPTIONS=--openssl-legacy-provider yarn build && yarn format-check && yarn lint && yarn package && yarn test",
     "shipit": "npx semantic-release",
     "move-v2-tag": "git tag -d v2 && git push origin :refs/tags/v2 && git tag v2 && git push --tags"
   },
