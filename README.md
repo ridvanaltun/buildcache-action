@@ -24,17 +24,17 @@ jobs:
   ios:
   runs-on: macos-latest # also runs on ubuntu and windows
   steps:
-    - uses: cscouto/buildcache-action@v2
+    - uses: cscouto/buildcache-action@v1
 ```
 
 - 500MB cache, cache is in `$GITHUB_WORKSPACE`, just needs build integration and you're set!
 
-When using with `actions/checkout@v2`, add this action as a step after the checkout, or the `buildcache` binary will be clobbered in the post-job cleanup of the checkout action:
+When using with `actions/checkout@v4`, add this action as a step after the checkout, or the `buildcache` binary will be clobbered in the post-job cleanup of the checkout action:
 
 ```yaml
 steps:
   - uses: actions/checkout@v4
-  - uses: cscouto/buildcache-action@v2
+  - uses: cscouto/buildcache-action@v1
 ```
 #### Customize if you need to
 
@@ -52,7 +52,7 @@ jobs:
       BUILDCACHE_LOG_FILE: ../buildcache.log # optional: Log where you like
   runs-on: macos-latest
   steps:
-    - uses: cscouto/buildcache-action@v2
+    - uses: cscouto/buildcache-action@v1
       with:
         cache_key: ${{ matrix.os }} # optional: separate caches maybe?
         upload_buildcache_log: 'true' # optional: 100% cache misses? Find out why
