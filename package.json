@@ -55,7 +55,7 @@
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.0",
     "@types/jest": "^27.0.2",
-    "@types/node": "^16.10.2",
+    "@types/node": "^18.15.0",
     "@types/rimraf": "^3.0.2",
     "@typescript-eslint/parser": "^4.32.0",
     "@vercel/ncc": "^0.31.1",
