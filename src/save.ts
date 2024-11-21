@@ -3,6 +3,7 @@ import * as cache from '@actions/cache'
 import * as core from '@actions/core'
 import * as fs from 'fs'
 import * as path from 'path'
+import * as process from "node:process";
 
 import { Stats, getCacheDir, getCacheKeys, getEnvVar, printStats } from './lib'
 
@@ -23,8 +24,10 @@ async function save(stats: Stats): Promise<void> {
     core.info(`buildcache: saving cache with key "${unique}".`)
     try {
       await cache.saveCache(paths, unique)
+      process.exit(0);
     } catch (e) {
       core.warning(`buildcache: caching not working: ${e}`)
+      process.exit(1);
     }
   }
 }
