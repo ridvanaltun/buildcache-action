@@ -3,7 +3,7 @@
   "branches": [
     {name: "main"}
   ],
-  "repositoryUrl": "git@github.com:cscouto/buildcache-action.git",
+  "repositoryUrl": "git@github.com:ridvanaltun/buildcache-action.git",
   "plugins": [
     ["@semantic-release/commit-analyzer", {
       "preset": "conventionalcommits"

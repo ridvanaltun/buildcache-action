@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:cscouto/buildcache-action.git"
+    "url": "git@github.com:ridvanaltun/buildcache-action.git"
   },
   "keywords": [
     "actions",
@@ -41,6 +41,10 @@
     {
       "name": "Tiago Do Couto",
       "email": "cs.couto@outlook.com"
+    },
+    {
+      "name": "Ridvan Altun",
+      "email": "ridvanaltun@outlook.com"
     }
   ],
   "license": "MIT",

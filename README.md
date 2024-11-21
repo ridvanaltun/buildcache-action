@@ -24,7 +24,7 @@ jobs:
   ios:
   runs-on: macos-latest # also runs on ubuntu and windows
   steps:
-    - uses: cscouto/buildcache-action@v1
+    - uses: ridvanaltun/buildcache-action@v1
 ```
 
 - 500MB cache, cache is in `$GITHUB_WORKSPACE`, just needs build integration and you're set!
@@ -34,7 +34,7 @@ When using with `actions/checkout@v4`, add this action as a step after the check
 ```yaml
 steps:
   - uses: actions/checkout@v4
-  - uses: cscouto/buildcache-action@v1
+  - uses: ridvanaltun/buildcache-action@v1
 ```
 #### Customize if you need to
 
@@ -52,7 +52,7 @@ jobs:
       BUILDCACHE_LOG_FILE: ../buildcache.log # optional: Log where you like
   runs-on: macos-latest
   steps:
-    - uses: cscouto/buildcache-action@v1
+    - uses: ridvanaltun/buildcache-action@v1
       with:
         cache_key: ${{ matrix.os }} # optional: separate caches maybe?
         upload_buildcache_log: 'true' # optional: 100% cache misses? Find out why
@@ -107,7 +107,7 @@ The overall buid time should make it obvious, but the real test is your cache hi
 
 To verify things are working using the default configuration, look at the output of the workflow run, expand the "Post buildcache" step and check the statistics printed out. If you you "Re-run jobs" using the GitHub Actions web interface to re-run a job a second time, you _should_ see 100% hit rate, on quite a few objects.
 
-The output of this repositories [react-native compile test action](https://github.com/cscouto/buildcache-action/actions/workflows/react-native-build-test.yml) are a good example.
+The output of this repositories [react-native compile test action](https://github.com/ridvanaltun/buildcache-action/actions/workflows/react-native-build-test.yml) are a good example.
 
 If you need more information, the default `BUILDCACHE_DEBUG` level of `2` is likely enough, you just need to add the `upload_buildcache_log` flag to your workflow integration and set it to `true`, then you may examine the actual output of buildcache as it worked, using the logfile attached as an artifact to the workflow run. If that still is not enough you may need a debug level of `1` See [Debugging Buildcache](https://github.com/mbitsnbites/buildcache/blob/master/doc/configuration.md#debugging) for more information.
 
